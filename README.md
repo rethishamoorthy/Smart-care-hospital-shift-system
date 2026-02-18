@@ -144,3 +144,4 @@ smartcare/
 - Frontend currently uses mock data (backend API routes are ready)
 - Designed for educational/demonstration purposes
 
+"# SmartCare-" 
