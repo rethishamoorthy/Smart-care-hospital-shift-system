@@ -1,6 +1,6 @@
-# Hospital Shift Management System
+# MediTrack
 
-A simple MVP demonstration of a hospital shift management system built with the MERN stack (MongoDB, Express, React, Node.js).
+MediTrack — a simple MVP demonstration of hospital staff & shift management built with the MERN stack (MongoDB, Express, React, Node.js).
 
 ## Features
 
@@ -35,8 +35,8 @@ npm install
 
 Create a `.env` file in the `backend` directory:
 ```
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/hospital-shift-system
+PORT=5001
+MONGODB_URI=mongodb://localhost:27017/meditrack
 ```
 
 ### 2. Seed the Database
@@ -58,7 +58,7 @@ cd backend
 npm run dev
 ```
 
-The backend server will run on `http://localhost:5000`
+The backend server will run on `http://localhost:5001`
 
 ### 4. Frontend Setup
 
@@ -124,18 +124,18 @@ smartcare/
 ## Login Credentials
 
 ### Admin
-- Email: `admin@hospital.com`
+- Email: `admin@meditrack.com`
 - Password: `admin123`
 
 ### Doctor
-- Email: `sarah.johnson@hospital.com`
+- Email: `sarah.johnson@meditrack.com`
 - Password: `doctor123`
 
 ### Nurse
-- Email: `patricia.brown@hospital.com`
+- Email: `patricia.brown@meditrack.com`
 - Password: `nurse123`
 
-*Note: All users follow the pattern: `[name]@hospital.com` / `[role]123`*
+*Note: All users follow the pattern: `[name]@meditrack.com` / `[role]123`*
 
 ## Notes
 
