@@ -1,0 +1,32 @@
+const medicineData = [
+    { id: "MED-001", name: "Paracetamol", dosage: "500mg", type: "Tablet", price: 5.00 },
+    { id: "MED-002", name: "Crocin", dosage: "650mg", type: "Tablet", price: 6.00 },
+    { id: "MED-003", name: "Dolo 650", dosage: "650mg", type: "Tablet", price: 7.00 },
+    { id: "MED-004", name: "Azithromycin", dosage: "500mg", type: "Tablet", price: 45.00 },
+    { id: "MED-005", name: "Amoxicillin", dosage: "500mg", type: "Capsule", price: 30.00 },
+    { id: "MED-006", name: "Pantocid", dosage: "40mg", type: "Tablet", price: 12.00 },
+    { id: "MED-007", name: "Omez", dosage: "20mg", type: "Capsule", price: 8.00 },
+    { id: "MED-008", name: "Metformin", dosage: "500mg", type: "Tablet", price: 4.00 },
+    { id: "MED-009", name: "Atorvastatin", dosage: "10mg", type: "Tablet", price: 15.00 },
+    { id: "MED-010", name: "Amlodipine", dosage: "5mg", type: "Tablet", price: 5.00 },
+    { id: "MED-011", name: "Cetirizine", dosage: "10mg", type: "Tablet", price: 3.00 },
+    { id: "MED-012", name: "Avil", dosage: "25mg", type: "Tablet", price: 2.00 },
+    { id: "MED-013", name: "Combiflam", dosage: "400mg", type: "Tablet", price: 4.00 },
+    { id: "MED-014", name: "Ibuprofen", dosage: "400mg", type: "Tablet", price: 3.50 },
+    { id: "MED-015", name: "Diclofenac", dosage: "50mg", type: "Injection", price: 20.00 },
+    { id: "MED-016", name: "Tramadol", dosage: "50mg", type: "Injection", price: 35.00 },
+    { id: "MED-017", name: "Ranitidine", dosage: "150mg", type: "Tablet", price: 2.00 },
+    { id: "MED-018", name: "Domperidone", dosage: "10mg", type: "Tablet", price: 4.00 },
+    { id: "MED-019", name: "Ondansetron", dosage: "4mg", type: "Injection", price: 25.00 },
+    { id: "MED-020", name: "Ceftriaxone", dosage: "1g", type: "Injection", price: 60.00 },
+    { id: "MED-021", name: "Insulin", dosage: "40IU", type: "Injection", price: 150.00 },
+    { id: "MED-022", name: "Deriphyllin", dosage: "100mg", type: "Injection", price: 15.00 },
+    { id: "MED-023", name: "Vitamin C", dosage: "500mg", type: "Tablet", price: 2.50 },
+    { id: "MED-024", name: "Zincovit", dosage: "Standard", type: "Tablet", price: 8.00 },
+    { id: "MED-025", name: "Shelcal 500", dosage: "500mg", type: "Tablet", price: 10.00 },
+    { id: "MED-026", name: "Allegra", dosage: "120mg", type: "Tablet", price: 18.00 },
+    { id: "MED-027", name: "Thyronorm", dosage: "50mcg", type: "Tablet", price: 5.00 },
+    { id: "MED-028", name: "Telmisartan", dosage: "40mg", type: "Tablet", price: 9.00 }
+];
+
+export default medicineData;

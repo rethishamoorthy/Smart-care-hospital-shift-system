@@ -12,6 +12,13 @@ const patientSchema = new mongoose.Schema({
     unique: true,
     trim: true
   },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+    lowercase: true
+  },
   department: {
     type: String,
     required: true,
@@ -24,7 +31,19 @@ const patientSchema = new mongoose.Schema({
   assignedStaff: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
-  }]
+  }],
+  // Staff Module Fields
+  age: { type: Number },
+  gender: { type: String },
+  phoneNumber: { type: String },
+  parentName: { type: String },
+  guardianPhoneNumber: { type: String },
+  bloodGroup: { type: String },
+  address: { type: String },
+  ward: { type: String }, // e.g., "1st Floor - Emergency"
+  bedNumber: { type: String },
+  guardianName: { type: String },
+  guardianPhone: { type: String }
 }, {
   timestamps: true
 });

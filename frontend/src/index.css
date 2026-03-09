@@ -4,15 +4,26 @@
   box-sizing: border-box;
 }
 
+:root {
+  --primary-btn-bg: #d9ab78;
+  --primary-btn-text: #201416;
+  --sidebar-bg: #201416;
+  --sidebar-text: #dad3cc;
+  --sidebar-active-bg: rgba(255, 255, 255, 0.1);
+  --doctor-card-bg: #ceb391;
+  --doctor-card-text: #201416;
+  --text-dark: #201416;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f5f7fa;
-  color: #333;
-  line-height: 1.6;
+  background-color: #dad3cc;
+  color: var(--text-dark);
 }
 
 code {
@@ -23,5 +34,3 @@ code {
 #root {
   min-height: 100vh;
 }
-
-

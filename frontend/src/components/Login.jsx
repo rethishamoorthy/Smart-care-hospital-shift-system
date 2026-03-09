@@ -3,8 +3,12 @@ import { useAuth } from '../context/AuthContext'
 import './Login.css'
 
 const Login = () => {
+  const [isLogin, setIsLogin] = useState(true)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [name, setName] = useState('')
+  const [phone, setPhone] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const { login } = useAuth()
@@ -13,14 +17,15 @@ const Login = () => {
   const mockLogin = (email, password) => {
     // Mock users for testing
     const mockUsers = {
-      'admin@hospital.com': { _id: '1', name: 'Admin Manager', email: 'admin@hospital.com', role: 'admin', department: 'Administration', specialization: 'Hospital Management', isAvailable: true, isEmergencyAvailable: true, contactNumber: '555-0001' },
-      'sarah.johnson@hospital.com': { _id: '2', name: 'Dr. Sarah Johnson', email: 'sarah.johnson@hospital.com', role: 'doctor', department: 'Cardiology', specialization: 'Cardiac Surgery', isAvailable: true, isEmergencyAvailable: true, contactNumber: '555-0101' },
-      'michael.chen@hospital.com': { _id: '3', name: 'Dr. Michael Chen', email: 'michael.chen@hospital.com', role: 'doctor', department: 'Emergency', specialization: 'Emergency Medicine', isAvailable: true, isEmergencyAvailable: true, contactNumber: '555-0102' },
-      'patricia.brown@hospital.com': { _id: '7', name: 'Nurse Patricia Brown', email: 'patricia.brown@hospital.com', role: 'nurse', department: 'ICU', specialization: '', isAvailable: true, isEmergencyAvailable: true, contactNumber: '555-0201' },
-      'robert.taylor@hospital.com': { _id: '8', name: 'Nurse Robert Taylor', email: 'robert.taylor@hospital.com', role: 'nurse', department: 'Emergency', specialization: '', isAvailable: true, isEmergencyAvailable: true, contactNumber: '555-0202' }
+      'admin@meditrack.com': { _id: '1', name: 'Admin Manager', email: 'admin@meditrack.com', role: 'admin', department: 'Administration', specialization: 'Hospital Management', isAvailable: true, isEmergencyAvailable: true, contactNumber: '555-0001' },
+      'sarah.johnson@meditrack.com': { _id: '2', name: 'Dr. Sarah Johnson', email: 'sarah.johnson@meditrack.com', role: 'doctor', department: 'Cardiology', specialization: 'Cardiac Surgery', isAvailable: true, isEmergencyAvailable: true, contactNumber: '555-0101' },
+      'michael.chen@meditrack.com': { _id: '3', name: 'Dr. Michael Chen', email: 'michael.chen@meditrack.com', role: 'doctor', department: 'Emergency', specialization: 'Emergency Medicine', isAvailable: true, isEmergencyAvailable: true, contactNumber: '555-0102' },
+      'patricia.brown@meditrack.com': { _id: '7', name: 'Nurse Patricia Brown', email: 'patricia.brown@meditrack.com', role: 'nurse', department: 'ICU', specialization: '', isAvailable: true, isEmergencyAvailable: true, contactNumber: '555-0201' },
+      'robert.taylor@meditrack.com': { _id: '8', name: 'Nurse Robert Taylor', email: 'robert.taylor@meditrack.com', role: 'nurse', department: 'Emergency', specialization: '', isAvailable: true, isEmergencyAvailable: true, contactNumber: '555-0202' },
+      'patient@meditrack.com': { _id: '99', name: 'Patient User', email: 'patient@meditrack.com', role: 'patient', department: '', specialization: '', isAvailable: true, isEmergencyAvailable: false, contactNumber: '555-9999' }
     }
 
-    const validPasswords = ['admin123', 'doctor123', 'nurse123']
+    const validPasswords = ['admin123', 'doctor123', 'nurse123', 'patient123']
     
     if (mockUsers[email] && validPasswords.includes(password)) {
       return mockUsers[email]
@@ -34,21 +39,58 @@ const Login = () => {
     setLoading(true)
 
     try {
-      // Try mock login first (for when backend is not connected)
-      const mockUser = mockLogin(email, password)
-      if (mockUser) {
-        login(mockUser)
-        return
+      if (isLogin) {
+        // --- LOGIN FLOW ---
+        try {
+          // Priority: Try backend login first
+          const response = await fetch('http://localhost:5001/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            login(data.user);
+            return;
+          }
+        } catch (backendErr) {
+          console.log("Backend login failed, trying mock...", backendErr);
+        }
+
+        // Fallback to Mock login
+        const mockUser = mockLogin(email, password)
+        if (mockUser) {
+          login(mockUser)
+          return
+        }
+
+        setError('Invalid email or password')
+
+      } else {
+        // --- REGISTRATION FLOW ---
+        if (password !== confirmPassword) {
+          setError("Passwords do not match");
+          setLoading(false);
+          return;
+        }
+
+        const response = await fetch('http://localhost:5001/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, password, phone })
+        });
+
+        const data = await response.json();
+        if (!response.ok) {
+          throw new Error(data.error || 'Registration failed');
+        }
+
+        login(data.user);
       }
 
-      // If backend is connected, use this instead:
-      // const response = await axios.post('/api/auth/login', { email, password })
-      // login(response.data.user)
-
-      // If no mock user found, show error
-      setError('Invalid email or password')
     } catch (err) {
-      setError(err.response?.data?.error || 'Login failed. Please try again.')
+      setError(err.message || 'Authentication failed. Please try again.')
     } finally {
       setLoading(false)
     }
@@ -58,12 +100,39 @@ const Login = () => {
     <div className="login-container">
       <div className="login-card">
         <div className="login-header">
-          <h1>Hospital Shift Management</h1>
-          <p>Please sign in to continue</p>
+          <h1>MediTrack</h1>
+          <p>{isLogin ? 'Please sign in to continue' : 'Create a new account'}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="login-form">
           {error && <div className="error-message">{error}</div>}
+
+          {!isLogin && (
+            <>
+              <div className="form-group">
+                <label htmlFor="name">Full Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  placeholder="Enter your full name"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  required
+                  placeholder="Enter your phone number"
+                />
+              </div>
+            </>
+          )}
 
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -89,17 +158,31 @@ const Login = () => {
             />
           </div>
 
-          <button type="submit" className="login-button" disabled={loading}>
-            {loading ? 'Signing in...' : 'Sign In'}
-          </button>
-        </form>
+          {!isLogin && (
+            <div className="form-group">
+              <label htmlFor="confirm-password">Confirm Password</label>
+              <input
+                type="password"
+                id="confirm-password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+                placeholder="Confirm your password"
+              />
+            </div>
+          )}
 
-        <div className="login-help">
-          <p><strong>Demo Credentials:</strong></p>
-          <p>Admin: admin@hospital.com / admin123</p>
-          <p>Doctor: sarah.johnson@hospital.com / doctor123</p>
-          <p>Nurse: patricia.brown@hospital.com / nurse123</p>
-        </div>
+          <button type="submit" className="login-button" disabled={loading}>
+            {loading ? 'Processing...' : (isLogin ? 'Sign In' : 'Create Account')}
+          </button>
+
+          <div className="toggle-auth-mode">
+            {isLogin ? "Don't have an account? " : "Already have an account? "}
+            <button type="button" className="text-link" onClick={() => setIsLogin(!isLogin)}>
+              {isLogin ? 'Sign Up' : 'Log In'}
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   )

@@ -50,8 +50,8 @@
 }
 
 .logout-button {
-  background: #e74c3c;
-  color: white;
+  background: var(--primary-btn-bg);
+  color: var(--primary-btn-text);
   border: none;
   padding: 0.5rem 1.25rem;
   border-radius: 6px;
@@ -62,7 +62,7 @@
 }
 
 .logout-button:hover {
-  background: #c0392b;
+  background: #c89b68;
 }
 
 .navbar-login-buttons {
@@ -83,7 +83,8 @@
 }
 
 .role-login-button.admin {
-  background: #6c757d;
+  background: var(--primary-btn-bg);
+  color: var(--primary-btn-text);
 }
 
 .role-login-button.admin:hover {
@@ -91,7 +92,8 @@
 }
 
 .role-login-button.doctor {
-  background: #007bff;
+  background: var(--primary-btn-bg);
+  color: var(--primary-btn-text);
 }
 
 .role-login-button.doctor:hover {
@@ -99,11 +101,22 @@
 }
 
 .role-login-button.nurse {
-  background: #28a745;
+  background: var(--primary-btn-bg);
+  color: var(--primary-btn-text);
 }
 
 .role-login-button.nurse:hover {
   background: #218838;
+}
+
+.role-login-button.patient {
+  background: #d9ab78;
+  color: #201416;
+  transition: background 0.3s ease;
+}
+
+.role-login-button.patient:hover {
+  background: #c79a68;
 }
 
 @media (max-width: 768px) {
@@ -133,3 +146,24 @@
   }
 }
 
+.navbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.lang-toggle-btn {
+  background: transparent;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+  transition: all 0.2s;
+}
+
+.lang-toggle-btn:hover {
+  background: #f0f0f0;
+  color: #333;
+}

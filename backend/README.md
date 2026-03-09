@@ -1,4 +1,4 @@
-# Backend - Hospital Shift Management System
+# Backend - MediTrack
 
 ## Setup
 
@@ -9,8 +9,8 @@ npm install
 
 2. Create `.env` file:
 ```
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/hospital-shift-system
+PORT=5001
+MONGODB_URI=mongodb://localhost:27017/meditrack
 ```
 
 3. Make sure MongoDB is running
@@ -25,7 +25,7 @@ npm run seed
 npm run dev
 ```
 
-Server runs on http://localhost:5000
+Server runs on http://localhost:5001
 
 ## API Routes
 

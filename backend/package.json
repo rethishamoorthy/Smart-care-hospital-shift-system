@@ -1,7 +1,7 @@
 {
-  "name": "hospital-shift-backend",
+  "name": "meditrack-backend",
   "version": "1.0.0",
-  "description": "Hospital Shift Management System Backend",
+  "description": "MediTrack Backend",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -16,13 +16,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
+    "axios": "^1.13.5",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
     "express": "^4.22.1",
-    "mongoose": "^7.8.8"
+    "mongoose": "^7.8.8",
+    "nodemailer": "^8.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
   }
 }
-

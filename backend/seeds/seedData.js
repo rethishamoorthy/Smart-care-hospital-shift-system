@@ -26,7 +26,7 @@ const seedData = async () => {
       // Admin
       {
         name: 'Admin Manager',
-        email: 'admin@hospital.com',
+        email: 'admin@meditrack.com',
         password: 'admin123',
         role: 'admin',
         department: 'Administration',
@@ -38,7 +38,7 @@ const seedData = async () => {
       // Doctors
       {
         name: 'Dr. Sarah Johnson',
-        email: 'sarah.johnson@hospital.com',
+        email: 'sarah.johnson@meditrack.com',
         password: 'doctor123',
         role: 'doctor',
         department: 'Cardiology',
@@ -49,7 +49,7 @@ const seedData = async () => {
       },
       {
         name: 'Dr. Michael Chen',
-        email: 'michael.chen@hospital.com',
+        email: 'michael.chen@meditrack.com',
         password: 'doctor123',
         role: 'doctor',
         department: 'Emergency',
@@ -60,7 +60,7 @@ const seedData = async () => {
       },
       {
         name: 'Dr. Emily Rodriguez',
-        email: 'emily.rodriguez@hospital.com',
+        email: 'emily.rodriguez@meditrack.com',
         password: 'doctor123',
         role: 'doctor',
         department: 'Pediatrics',
@@ -71,7 +71,7 @@ const seedData = async () => {
       },
       {
         name: 'Dr. James Wilson',
-        email: 'james.wilson@hospital.com',
+        email: 'james.wilson@meditrack.com',
         password: 'doctor123',
         role: 'doctor',
         department: 'ICU',
@@ -82,7 +82,7 @@ const seedData = async () => {
       },
       {
         name: 'Dr. Lisa Anderson',
-        email: 'lisa.anderson@hospital.com',
+        email: 'lisa.anderson@meditrack.com',
         password: 'doctor123',
         role: 'doctor',
         department: 'Cardiology',
@@ -94,7 +94,7 @@ const seedData = async () => {
       // Nurses
       {
         name: 'Nurse Patricia Brown',
-        email: 'patricia.brown@hospital.com',
+        email: 'patricia.brown@meditrack.com',
         password: 'nurse123',
         role: 'nurse',
         department: 'ICU',
@@ -105,7 +105,7 @@ const seedData = async () => {
       },
       {
         name: 'Nurse Robert Taylor',
-        email: 'robert.taylor@hospital.com',
+        email: 'robert.taylor@meditrack.com',
         password: 'nurse123',
         role: 'nurse',
         department: 'Emergency',
@@ -116,7 +116,7 @@ const seedData = async () => {
       },
       {
         name: 'Nurse Jennifer Martinez',
-        email: 'jennifer.martinez@hospital.com',
+        email: 'jennifer.martinez@meditrack.com',
         password: 'nurse123',
         role: 'nurse',
         department: 'Cardiology',
@@ -127,7 +127,7 @@ const seedData = async () => {
       },
       {
         name: 'Nurse David Lee',
-        email: 'david.lee@hospital.com',
+        email: 'david.lee@meditrack.com',
         password: 'nurse123',
         role: 'nurse',
         department: 'ICU',
@@ -138,7 +138,7 @@ const seedData = async () => {
       },
       {
         name: 'Nurse Maria Garcia',
-        email: 'maria.garcia@hospital.com',
+        email: 'maria.garcia@meditrack.com',
         password: 'nurse123',
         role: 'nurse',
         department: 'Pediatrics',
@@ -149,7 +149,7 @@ const seedData = async () => {
       },
       {
         name: 'Nurse Thomas White',
-        email: 'thomas.white@hospital.com',
+        email: 'thomas.white@meditrack.com',
         password: 'nurse123',
         role: 'nurse',
         department: 'Emergency',

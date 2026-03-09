@@ -75,8 +75,8 @@
 }
 
 .login-button {
-  background: #667eea;
-  color: white;
+  background: var(--primary-btn-bg);
+  color: var(--primary-btn-text);
   padding: 0.875rem;
   border: none;
   border-radius: 8px;
@@ -112,5 +112,3 @@
 .login-help strong {
   color: #2c3e50;
 }
-
-

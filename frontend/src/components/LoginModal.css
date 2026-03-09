@@ -64,7 +64,8 @@
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
+  /* Reduced gap slightly */
 }
 
 .form-group {
@@ -103,8 +104,8 @@
 }
 
 .demo-button {
-  background: #f8f9fa;
-  color: #667eea;
+  background: var(--primary-btn-bg);
+  color: var(--primary-btn-text);
   border: 1px solid #dee2e6;
   padding: 0.75rem;
   border-radius: 8px;
@@ -120,8 +121,8 @@
 }
 
 .login-button-modal {
-  background: #667eea;
-  color: white;
+  background: var(--primary-btn-bg);
+  color: var(--primary-btn-text);
   padding: 0.875rem;
   border: none;
   border-radius: 8px;
@@ -149,4 +150,77 @@
   border-top: 1px solid #e8ecef;
 }
 
+/* Social Login & Toggle Styles */
+.social-login-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 5px;
+}
 
+.divider {
+  display: flex;
+  align-items: center;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.divider span {
+  padding: 0 10px;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--primary-btn-bg);
+  border: 1px solid #d9ab78;
+  color: var(--primary-btn-text);
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.google-btn:hover {
+  background: #357ae8;
+  border-color: #2f5bb8;
+}
+
+.google-icon {
+  font-weight: 700;
+  font-family: 'Times New Roman', Times, serif;
+  /* Adjusted icon color for contrast */
+  color: #ffffff;
+}
+
+.toggle-auth-mode {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  color: #64748b;
+}
+
+.text-link {
+  background: none;
+  border: none;
+  color: var(--patient-primary, #0ea5e9);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  font-size: inherit;
+}
+
+.text-link:hover {
+  color: #0284c7;
+}

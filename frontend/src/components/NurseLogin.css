@@ -1,0 +1,136 @@
+.nurse-login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+}
+
+.nurse-login-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
+  width: 100%;
+  max-width: 450px;
+}
+
+.nurse-login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.nurse-login-header h1 {
+  color: #2c3e50;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.nurse-login-header p {
+  color: #7f8c8d;
+  font-size: 0.95rem;
+}
+
+.nurse-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.nurse-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nurse-form-group label {
+  color: #2c3e50;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.nurse-form-group input {
+  padding: 0.75rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.nurse-form-group input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.nurse-error-message {
+  background: #fff5f5;
+  color: #e74c3c;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #fed7d7;
+  font-size: 0.9rem;
+}
+
+.nurse-login-button {
+  background: var(--primary-btn-bg);
+  color: var(--primary-btn-text);
+  padding: 0.875rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+}
+
+.nurse-login-button:hover:not(:disabled) {
+  background: #5568d3;
+}
+
+.nurse-login-button:disabled {
+  background: #b0b0b0;
+  cursor: not-allowed;
+}
+
+.nurse-login-help {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e8ecef;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.nurse-login-help p {
+  margin: 0.25rem 0;
+}
+
+.nurse-login-help strong {
+  color: #2c3e50;
+}
+
+.nurse-toggle-auth-mode {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  color: #64748b;
+}
+
+.nurse-text-link {
+  background: none;
+  border: none;
+  color: #667eea;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  font-size: inherit;
+}
+
+.nurse-text-link:hover {
+  color: #5568d3;
+}

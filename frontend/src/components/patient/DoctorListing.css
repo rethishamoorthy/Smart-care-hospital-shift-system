@@ -1,0 +1,89 @@
+.doctor-listing-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.search-section {
+    background-color: white;
+    padding: 20px 30px;
+    border-bottom: 1px solid #f1f5f9;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+}
+
+.search-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    color: #94a3b8;
+    font-size: 1.2rem;
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    border: 1px solid #e2e8f0;
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #f8fafc;
+}
+
+.search-input:focus {
+    background-color: white;
+    border-color: var(--patient-primary, #0ea5e9);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+.listing-content {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.page-title {
+    margin-bottom: 25px;
+    color: #334155;
+    font-size: 1.8rem;
+}
+
+.doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.listing-loading,
+.listing-error,
+.no-results {
+    text-align: center;
+    padding: 50px;
+    color: #64748b;
+    font-size: 1.1rem;
+}
+
+.listing-error {
+    color: #ef4444;
+}
+
+@media (max-width: 640px) {
+    .doctors-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-section {
+        padding: 15px;
+    }
+}

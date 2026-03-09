@@ -1,3 +1,4 @@
+
 import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import LoginModal from './LoginModal'
@@ -21,7 +22,8 @@ const Navbar = () => {
     const roles = {
       admin: 'Administrator',
       doctor: 'Doctor',
-      nurse: 'Nurse'
+      nurse: 'Nurse',
+      patient: 'Patient'
     }
     return roles[role] || role
   }
@@ -30,49 +32,57 @@ const Navbar = () => {
     <>
       <nav className="navbar">
         <div className="navbar-container">
-          <div className="navbar-brand">
-            <h2>Hospital Shift Management</h2>
+          <div className="navbar-logo">
+            <h2>MediTrack</h2>
           </div>
 
-          {user ? (
-            <div className="navbar-user">
-              <div className="user-info">
-                <span className="user-name">{user.name}</span>
-                <span className="user-role">{getRoleDisplay(user.role)}</span>
+          <div className="navbar-controls">
+            {user ? (
+              <div className="navbar-user">
+                <div className="user-info">
+                  <span className="user-name">{user.name}</span>
+                  <span className="user-role">{getRoleDisplay(user.role)}</span>
+                </div>
+                <button onClick={handleLogout} className="logout-button">
+                  Logout
+                </button>
               </div>
-              <button onClick={handleLogout} className="logout-button">
-                Logout
-              </button>
-            </div>
-          ) : (
-            <div className="navbar-login-buttons">
-              <button 
-                className="role-login-button admin"
-                onClick={() => handleRoleClick('admin')}
-              >
-                Admin Login
-              </button>
-              <button 
-                className="role-login-button doctor"
-                onClick={() => handleRoleClick('doctor')}
-              >
-                Doctor Login
-              </button>
-              <button 
-                className="role-login-button nurse"
-                onClick={() => handleRoleClick('nurse')}
-              >
-                Nurse Login
-              </button>
-            </div>
-          )}
+            ) : (
+              <div className="navbar-login-buttons">
+                <button
+                  className="role-login-button admin"
+                  onClick={() => handleRoleClick('admin')}
+                >
+                  Admin Login
+                </button>
+                <button
+                  className="role-login-button doctor"
+                  onClick={() => handleRoleClick('doctor')}
+                >
+                  Doctor Login
+                </button>
+                <button
+                  className="role-login-button nurse"
+                  onClick={() => handleRoleClick('nurse')}
+                >
+                  Nurse Login
+                </button>
+                <button
+                  className="role-login-button patient"
+                  onClick={() => handleRoleClick('patient')}
+                >
+                  Patient Portal
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </nav>
 
       {showLoginModal && (
-        <LoginModal 
-          role={selectedRole} 
-          onClose={() => setShowLoginModal(false)} 
+        <LoginModal
+          role={selectedRole}
+          onClose={() => setShowLoginModal(false)}
         />
       )}
     </>

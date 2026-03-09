@@ -1,6 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+// models/Staff.js
+const mongoose = require('mongoose');
+
+const staffSchema = new mongoose.Schema({
+    id: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    name: { type: String, required: true },
+    role: { type: String, enum: ['Nurse', 'Doctor'], required: true }
+});
+
+module.exports = mongoose.model('Staff', staffSchema);
 
 // Get all available doctors and nurses
 router.get('/available', async (req, res) => {

@@ -1,4 +1,4 @@
-# Frontend - Hospital Shift Management System
+# Frontend - MediTrack
 
 ## Setup
 
@@ -14,7 +14,7 @@ npm run dev
 
 Frontend runs on http://localhost:3000
 
-Make sure the backend server is running on port 5000.
+Make sure the backend server is running on port 5001.
 
 ## Project Structure
 

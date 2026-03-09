@@ -1,0 +1,108 @@
+.doctor-card {
+    background: var(--doctor-card-bg);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+    color: var(--doctor-card-text);
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    border-color: var(--patient-primary, #0ea5e9);
+}
+
+.doctor-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+    color: #0369a1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.doctor-info {
+    text-align: center;
+    width: 100%;
+}
+
+.doctor-name {
+    margin: 0 0 8px 0;
+    color: var(--doctor-card-text);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.doctor-spec {
+    color: #4a3b2a;
+    /* Darker brown/gold for contrast */
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+}
+
+.doctor-dept {
+    color: #64748b;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+}
+
+.doctor-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    background-color: #f1f5f9;
+    color: #64748b;
+}
+
+.doctor-status.available {
+    background-color: #ecfdf5;
+    color: #059669;
+}
+
+.doctor-status.unavailable {
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+.book-btn-area {
+    width: 100%;
+    margin-top: auto;
+}
+
+.book-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--primary-btn-bg);
+    color: var(--primary-btn-text);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.book-btn:hover {
+    background-color: #c89b68;
+}
